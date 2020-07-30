@@ -1,7 +1,5 @@
 # Retrofit-tutorial
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkor45cw%2FRetrofit-tutorial)](https://hits.seeyoufarm.com)
-
 This is a sample project to show how to use Retrofit Libaray in your Android App.
 
 - Java based
