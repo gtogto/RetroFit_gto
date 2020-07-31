@@ -37,4 +37,4 @@ NOTE
 ```
 
 ## Output
-![Output Image](https://raw.githubusercontent.com/kor45cw/Retrofit-tutorial/develop/output2.jpg)
+![Output Image](https://user-images.githubusercontent.com/30851459/88996161-85313000-d327-11ea-9566-b3552fd5001d.jpg)
