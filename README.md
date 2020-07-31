@@ -36,5 +36,5 @@ NOTE
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## Output
+## ScreenShot
 ![Output Image](https://user-images.githubusercontent.com/30851459/88996161-85313000-d327-11ea-9566-b3552fd5001d.jpg)
