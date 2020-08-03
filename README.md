@@ -32,6 +32,7 @@ NOTE
 
 - Add Internet permission in AndroidManifest.xml
 - (Android Q) add network_security_config.xml
+- Domain -> jsonplaceholder.typicode.com 
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 ```

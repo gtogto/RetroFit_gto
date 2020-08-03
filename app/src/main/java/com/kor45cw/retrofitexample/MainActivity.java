@@ -1,21 +1,26 @@
 package com.kor45cw.retrofitexample;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import com.kor45cw.retrofitexample.Retrofit.ResponseBody.ResponseGet;
 import com.kor45cw.retrofitexample.Retrofit.RetroCallback;
 import com.kor45cw.retrofitexample.Retrofit.RetroClient;
 import com.kor45cw.retrofitexample.databinding.ActivityMainBinding;
 
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         binding.setActivity(this);
         retroClient = RetroClient.getInstance(this).createBaseApi();
         binding.link.setMovementMethod(LinkMovementMethod.getInstance());
+
+        getAppKeyHash();    // call a hashKey Function
+
     }
 
     private void setError(String errorString) {
@@ -78,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     public void get2(View view) {
         Toast.makeText(this, "GET 2 Clicked", Toast.LENGTH_SHORT).show();
         //retroClient.getSecond("1", new RetroCallback() {
-        retroClient.getSecond("1", new RetroCallback() {
+        retroClient.getSecond("2", new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 setError(t.toString());
@@ -221,4 +229,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /* Create for HASH KEY value */
+    private void getAppKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                Log.e("Hash key", something);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            Log.e("name not found", e.toString());
+        }
+    }
+
 }
