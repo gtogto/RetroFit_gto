@@ -17,16 +17,22 @@ public class SessionCallback implements ISessionCallback{
     // 로그인에 성공한 상태
     @Override
     public void onSessionOpened() {
-        requestMe();
+        Log.i("KAKAO_SESSION", "로그인 성공");
+
+        //requestMe();
     }
 
     // 로그인에 실패한 상태
     @Override
     public void onSessionOpenFailed(KakaoException exception) {
-        Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.getMessage());
+        //Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.getMessage());
+        Log.e("KAKAO_SESSION", "로그인 실패", exception);
     }
 
+
+
     // 사용자 정보 요청
+    /*
     public void requestMe() {
         UserManagement.getInstance().me(new MeV2ResponseCallback() {
             @Override
@@ -50,7 +56,7 @@ public class SessionCallback implements ISessionCallback{
                 Log.e("Profile : ", id + "");
             }
         });
-    }
+    }*/
 }
 
 
